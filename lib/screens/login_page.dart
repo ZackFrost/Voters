@@ -352,12 +352,14 @@ class loginPageState extends State<loginPage> {
   Future<Admin> loadDataRep() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     String result = await preferences.getString('rep');
+    if(result != null)
     return Admin.fromMap(await json.decode(result));
   }
 
   Future<Admin> loadData() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     String result = await preferences.getString('login');
+    if(result != null)
     return Admin.fromMap(await json.decode(result));
   }
 }
